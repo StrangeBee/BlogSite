@@ -1,0 +1,29 @@
+.sidebarContainer{
+    width: 25%;
+}
+
+.cardHeader{
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+.profileImageContainer{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.profileImageContainer img{
+    width: 100%;
+    max-height: 100%;
+    margin: 20px 0;
+}
+
+.personalBio{
+    font-size: 16px;
+    color:#565673 ;
+    font-weight: 300;
+}
