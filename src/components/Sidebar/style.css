@@ -27,3 +27,22 @@
     color:#565673 ;
     font-weight: 300;
 }
+
+.recentPost{
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.recentPost h3{
+    font-weight: 500;
+    color: #6c6c6c;
+    letter-spacing: 1px;
+    font-size: 14px;
+    margin: 0;
+}
+
+.recentPost span{
+    font-size: 10px;
+    font-weight: 400;
+    color: #6c6c66;
+}

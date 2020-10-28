@@ -1,21 +1,53 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Card from '../UI/Card'
 import './style.css'
+import blogPost from '../../data/data.json'
 
 
-export default function BlogPost() {
+export default function BlogPost(props) {
+
+
+      const[post, setPost] = useState({
+        id: "",
+        blogCategory:"" ,
+        blogTitle: "",
+        slug: "",
+        postedOn:"" ,
+        author:"" ,
+        blogImage:"" ,
+        blogText:"",
+      });
+
+
+      const [postId, setPostId] = useState(''); 
+
+      useEffect(() => {
+        const postId = props.match.params.postId;
+        const post = blogPost.data.find(post => post.id == postId);
+        setPost(post);
+        setPostId(postId)
+      }, [post, props.match.params.postId]);
+
+      if (post.blogImage == "") return null;
+
     return (
             <div className="blogPostContainer">
                 <Card>
                     <div className="blogHeader">
-                        <span className="blogCategory">Featured</span>
-                        <h1 className="postTitle">Beautiful is always beautiful</h1>
-                        <span className="postedBy">posted on Oct 26,2020 by Doga Blogging Tips</span>
+                        <span className="blogCategory">{post.blogCategory}</span>
+                        <h1 className="postTitle">{post.blogTitle}</h1>
+                        <span className="postedBy">posted on {post.postedOn} by {post.author}</span>
                     </div>
 
                     <div className="postImageContainer">
-                         <img src={require('../../blogPostImages/fashion-1.jpg')} alt="Post Image" />
+                         <img src={require('../../blogPostImages/' + post.blogImage)} alt="Post Image" />
                     </div>
+                     
+                     <div className="postContent">
+                       <h3>{post.blogTitle}</h3>
+                       <p>{post.blogText}</p>
+                     </div>
+
                 </Card>
             </div> 
     )
